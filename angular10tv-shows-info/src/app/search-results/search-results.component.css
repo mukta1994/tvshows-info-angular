@@ -1,0 +1,30 @@
+.shows-display{
+  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.show-image{
+    width:100%;
+}
+.air-date{
+    color:gray;
+}
+
+.overview{
+    text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+
+.fancy_card:hover {
+    transform: translate3D(0,-1px,0) scale(1.03); /* move up slightly and zoom in */
+    box-shadow: 8px 28px 50px rgba(39,44,49,.07), 1px 6px 12px rgba(39,44,49,.04);
+    transition: all .4s ease; /* zoom in */
+  }
+
+  .fancy-card{
+      cursor: pointer;
+  }

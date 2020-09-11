@@ -11,6 +11,14 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public sendGetRequest(){
-    return this.httpClient.get(this.REST_API_SERVER+"genre/tv/list?"+this.apikey);
-  }}
+  public sendGetRequest(query,i){
+    return this.httpClient.get(this.REST_API_SERVER+"search/tv?"+this.apikey+"&query="+query+"&page="+i);
+  }
+
+  public getDetails(id){
+    return this.httpClient.get(this.REST_API_SERVER+"tv/"+id+"?"+this.apikey);
+  }
+
+}
+
+ 
