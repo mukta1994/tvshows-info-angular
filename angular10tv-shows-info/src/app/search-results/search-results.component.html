@@ -1,0 +1,23 @@
+
+<div style="width:60%;margin:auto">
+        <div class="search-results"
+        infinite-scroll
+        (scrolled)="onScroll()">    <div class="shows-display">
+        <mat-card class="fancy-card" *ngFor="let show of dataset"
+        appMaterialElevation [defaultElevation]="defaultElevation" raisedElevation="16">
+            <mat-card-content>
+                <img class="show-image" src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}">
+                <div style="font-size: 16px;font-weight:bold">{{show.name}}</div>
+                <div class="air-date">{{show.first_air_date}}</div>
+                
+                <mat-chip-list>
+                    <mat-chip *ngFor="let network of show.networks">
+                        {{network.name}}
+                    </mat-chip>
+                </mat-chip-list>
+                <div class="overview">{{show.overview}}</div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+</div>

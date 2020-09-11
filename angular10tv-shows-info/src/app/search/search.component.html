@@ -1,0 +1,9 @@
+<div class="search">
+        <!-- <mat-form-field>
+                <mat-label>Enter search word</mat-label> -->
+                <input type="search" [(ngModel)]="searchText" placeholder="Search text">
+              <!-- </mat-form-field> 
+    <button mat-raised-button color="primary" [routerLink]="['./results',searchText]">Primary</button>-->
+    <div class="search" [routerLink]="['./results',searchText]">Search</div>
+    
+</div>
