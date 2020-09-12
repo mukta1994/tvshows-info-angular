@@ -1,1 +1,101 @@
-<p>details works!</p>
+<div class="details" style="background-image:url('../assets/bg-img4.jpg')">
+    <!-- <div class="details" style="background-image:url('https://image.tmdb.org/t/p/w185/{{details.backdrop_path}}')"> -->
+    <div class="container details-container">
+        <div class="poster_img">
+            <!-- <img src="https://image.tmdb.org/t/p/w185/{{details.poster_path}}" style="height: 450px"> -->
+            <img *ngIf="details.poster_path!=null; else defaultimage" src="https://image.tmdb.org/t/p/w185/{{details.poster_path}}" style="height: 450px">
+            <ng-template #defaultimage><img class="default-img" src="../assets/default.jpg"></ng-template>
+        </div>
+
+        <div class="info">
+            <div>
+                <div style="font-size: 16px;font-weight:bold">{{details.name}}</div>
+                <div class="air-date" style="color:gray">{{details.first_air_date}}</div>
+                
+                <div style="font-weight: bold">Status</div>
+            <div>{{details.status}}</div>
+            <br />
+            <div style="font-weight: bold">Type</div>
+            <div>{{details.type}}</div>
+            <br />
+            <div style="font-weight: bold">Network</div>
+            <div>
+                <mat-chip-list>
+                    <mat-chip *ngFor="let network of details.networks">
+                        {{network.name}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <br />
+            <div style="font-weight: bold">Genres</div>
+            <div>
+                    <div class="chip" *ngFor="let genre of details.genres">
+                        {{genre.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="" style="padding-top:15px">{{details.overview}}</div>
+        </div>
+        <div>
+            
+            
+        </div>
+    </div>
+</div>
+<div class="container">
+        <!-- <select class="theme-pink">
+                <option *ngFor="let season of seasonEpisodes">Season{{season.season_number+1}}</option>
+              </select> -->
+
+<div *ngFor="let season of seasonEpisodes">
+    <mat-card class="fancy-card season-card"  appMaterialElevation
+    [defaultElevation]="defaultElevation" raisedElevation="16">
+    <mat-card-content class="season-content">
+        <div mat-card-image class="season-image">
+            <!-- <img src="https://image.tmdb.org/t/p/w185/{{season.poster_path}}"> -->
+            <img *ngIf="season.poster_path!=null; else defaultimage" src="https://image.tmdb.org/t/p/w185/{{season.poster_path}}">
+            <ng-template #defaultimage><img src="../assets/default.jpg" style="width: 185px"></ng-template>
+        </div>
+        <div class="info"  style="width:inherit">
+
+            <div style="font-size: 16px;font-weight:bold">{{season.name}}</div>
+            <div class="air-date">{{season.air_date}}</div>
+            <div class="" style="padding-top:15px">{{season.overview}}</div>
+            <mat-slide-toggle  [(ngModel)]="isChecked+season.season_number" >
+            <div *ngIf="isChecked+season.season_number==false; else elseBlock">View episodes</div>
+            <ng-template #elseBlock>Hide episodes</ng-template></mat-slide-toggle>
+        </div>
+        
+
+    </mat-card-content>
+
+</mat-card>
+<div class="season-display" [ngClass]="{'hidden': isChecked+season.season_number==0}" style="overflow-x:scroll">
+        <mat-card class="fancy-card" *ngFor="let episode of season.episodes" appMaterialElevation
+            [defaultElevation]="defaultElevation" raisedElevation="16" (click)="openDialog(episode)">
+            <mat-card-content class="card-content">
+                <div mat-card-image>
+                    <!-- <img src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}"> -->
+                    <img *ngIf="episode.still_path!=null; else defaultimage" src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}">
+                    <ng-template #defaultimage><img src="../assets/default.jpg" style="width: 185px"></ng-template>
+                </div>
+                <div class="align-self-end" style="text-align: center;width:inherit">
+
+                    <div style="font-size: 16px;font-weight:bold">{{episode.name}}</div>
+                    <div class="air-date">{{episode.air_date}}</div>
+                    <div class=""><p style="font-weight:bold">rating:</p>{{episode.vote_average}}</div>
+                </div>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+</div>
+
+<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+
+  
+</div>
+
+
+    

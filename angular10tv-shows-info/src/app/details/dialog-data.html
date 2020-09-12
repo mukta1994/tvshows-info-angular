@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+        <div class="container details-container">
+                <div class="episode-img">
+                    <img src="https://image.tmdb.org/t/p/w185/{{data.episode.still_path}}"></div>
+        
+                <div class="info">
+                    <div>
+                        <div style="font-size: 16px;font-weight:bold">{{data.episode.name}}<span style="font-size: 14px;font-weight:normal">({{data.episode.air_date}})</span></div>
+                        <div style="display: flex;padding-top:10px;">
+                                <p style="font-weight: bold;"> {{data.directorList!="" ? 'Directing :' : ''}}  </p>
+                                    <span style="padding-left: 1px">{{data.directorList}}</span>
+                                </div>
+                       
+                    </div>
+                    <div>{{data.episode.overview}}</div>
+                    
+                </div>
+               
+            </div> 
+            
+           
+</div>
