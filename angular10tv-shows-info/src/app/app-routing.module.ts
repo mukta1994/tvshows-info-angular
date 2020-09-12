@@ -8,15 +8,15 @@ import { DetailsComponent } from './details/details.component';
 const routes: Routes = [
   {
     path: '',
-    component: SearchComponent
+    component: SearchComponent,pathMatch:"full"
   },
   {
     path: 'results/:query',
     component: SearchResultsComponent
   },
   {
-    path: 'details',
-    component: DetailsComponent
+    path: 'details/:id',
+    component: DetailsComponent,pathMatch:"full"
   }
 
 ];

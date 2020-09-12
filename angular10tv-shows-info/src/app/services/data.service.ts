@@ -19,6 +19,12 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER+"tv/"+id+"?"+this.apikey);
   }
 
+  public getSeasons(season_number,tv_id){
+    
+    return this.httpClient.get(this.REST_API_SERVER+"tv/"+tv_id+"/season/"+season_number+"?"+this.apikey);
+
+  }
+
 }
 
  

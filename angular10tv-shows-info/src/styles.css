@@ -2,3 +2,63 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-chip-list-wrapper{
+    display: block !important;
+}
+
+.content{
+    margin-top:28px!important;
+}
+
+.details img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.overview{
+    text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: darkseagreen;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: green;
+}
+.mat-dialog-container {
+    vertical-align: middle; 
+}
+.info{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:20px;
+}
+
+ .details-container{
+    display: flex;
+}
+
+.episode-img{
+    margin:auto;
+}
+
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    min-height: 35px;
+    min-width:80px;
+    font-size: 16px;
+    line-height: 35px;
+    border-radius: 25px;
+    margin:1px 1px 0px 0px;
+    background-color: pink;
+  }
+
+.poster_img{
+    display: block;
+    margin: auto 0;
+}
+

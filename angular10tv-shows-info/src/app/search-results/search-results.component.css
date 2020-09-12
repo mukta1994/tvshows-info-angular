@@ -6,9 +6,6 @@
     grid-auto-rows: minmax(100px, auto);
 }
 
-.show-image{
-    width:100%;
-}
 .air-date{
     color:gray;
 }
@@ -27,4 +24,39 @@ overflow: hidden;
 
   .fancy-card{
       cursor: pointer;
+  }
+
+
+.mat-card-image{
+    width: fit-content;
+    margin: auto;
+    display: block;
+    padding-top: 0px;
+}
+.mat-card-image:first-child {
+    margin-top: auto;
+}
+ .card-content{
+    display: flex;
+    flex-direction:column;
+    height: 100%;
+    width: 100%;
+ }
+
+ .default-img{
+     height:270px;
+ }
+
+ @media only screen and (max-width: 992px) {
+    .shows-display{     
+          grid-template-columns: repeat(2, 50%);
+          
+      }
+  }
+
+ @media only screen and (max-width: 768px) {
+    .shows-display{
+          grid-template-columns: repeat(1, 100%);
+         
+      }
   }

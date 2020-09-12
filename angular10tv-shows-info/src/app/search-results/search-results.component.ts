@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,11 +16,10 @@ export class SearchResultsComponent implements OnInit {
   defaultElevation = 2;
   raisedElevation = 8;
   i=0;
-  dataset =  [];
+  dataset = [];
   query=this._Activatedroute.snapshot.paramMap.get("query");
   ngOnInit(): void {
      this.getData();
-
   }
 
   onScroll() {
