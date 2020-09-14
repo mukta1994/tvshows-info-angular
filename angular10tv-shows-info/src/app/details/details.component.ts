@@ -29,10 +29,13 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getDetails(this.id).subscribe((data)=>{
       this.details=data;
+      console.log(this.details)
       if(this.details && this.details.seasons.length){
       this.selected_season=this.details.seasons[0];
       this.dataService.getSeasons(this.details.seasons[0].season_number,this.details.id).subscribe((data)=>{
         this.seasonEpisodes=data;
+        console.log(this.seasonEpisodes,"season");
+
       })
     }
       // this.dataService.getSeasons(this.details.seasons,this.details.id);   

@@ -192,3 +192,11 @@ overflow: hidden;
 .mat-autocomplete-panel {
     border-radius: 8px;
 }
+
+.nav-buttons .mat-button:hover{
+ color:white;
+ cursor: pointer;
+ font-size: 18px;
+ font-weight: bold;
+text-decoration: none;
+}
