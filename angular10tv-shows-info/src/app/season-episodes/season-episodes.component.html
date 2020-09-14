@@ -1,0 +1,68 @@
+<!-- <mat-form-field appearance="fill">
+        <mat-select [(ngModel)]="selected_season" (selectionChange)="onSeasonChange($event)">
+          <mat-option *ngFor="let data of season_data.seasons" [(ngModel)]="data.id" ngDefaultControl [value]="data" (change)="episode_data = data">
+            {{data.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+<!-- <div class="container" *ngFor="let season of season_data"> -->
+        <div class="container" >
+
+        <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="defaultElevation"
+            raisedElevation="16">
+            <mat-card-content class="season-content">
+                <div mat-card-image class="season-image">
+                    <img *ngIf="season_data.poster_path!=null; else defaultimage2"
+                        src="https://image.tmdb.org/t/p/w185/{{season_data.poster_path}}">
+                    <ng-template #defaultimage2><img src="../assets/default.jpg" style="width: 185px"></ng-template>
+                </div>
+                <div class="info" style="width:inherit">
+
+                    <div style="font-size: 16px;font-weight:bold">{{season_data.name}}</div>
+                    <div class="air-date">{{season_data.air_date | date}}</div>
+                    <div class="" style="padding-top:15px">{{season_data.overview}}</div>
+                    <div *ngIf="season_data.episodes.length==0; else episodeavailable">No episodes available</div>
+                    <ng-template #episodeavailable>
+
+                    <mat-slide-toggle [(ngModel)]="isChecked+season_data.season_number">
+
+                        <div *ngIf="isChecked+season_data.season_number==false; else elseBlock">View episodes</div>
+                        <ng-template #elseBlock>Hide episodes</ng-template>
+                    </mat-slide-toggle></ng-template>
+                </div>
+
+
+            </mat-card-content>
+
+        </mat-card>
+        <div class="season-display" [ngClass]="{'hidden': isChecked+season_data.season_number==0}" style="overflow-x:scroll">
+            <mat-card class="fancy-card" *ngFor="let episode of season_data.episodes" appMaterialElevation
+                [defaultElevation]="defaultElevation" raisedElevation="16" (click)="openDialog(episode)">
+                <mat-card-content class="card-content">
+                    <div mat-card-image>
+                        <img *ngIf="episode.still_path!=null; else defaultimage3"
+                            src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}">
+                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="width: 155px;height:120px"></ng-template>
+                    </div>
+                    <div style="text-align: center;width:inherit">
+
+                        <div ngClass="episode-name" style="font-size: 16px;font-weight:bold">{{episode.name}}</div>
+                        <div class="air-date">{{episode.air_date | date}}</div>
+                        <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                    <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+                                </span>
+                            </ng-template>
+                        <ngb-rating [max]="1" [rate]="episode.vote_average/10" [starTemplate]="t" [readonly]="true">
+                        </ngb-rating>
+                        <pre>{{episode.vote_average| number:'1.0-1'}}/10({{episode.vote_count}})</pre>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+
+    </div>
+
+  

@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+        <div class="dialogue-container">
+                <div class="episode-img">
+                    <!-- <img src="https://image.tmdb.org/t/p/w185/{{data.episode.still_path}}"> -->
+                    <img *ngIf="data.episode.still_path!=null; else default_img_dialogue" src="https://image.tmdb.org/t/p/w185/{{data.episode.still_path}}">
+                            <ng-template #default_img_dialogue><img class="default-img" src="../assets/default.jpg" ></ng-template>
+                </div>
+        
+                <div class="info">
+                    <div>
+                        <div style="font-size: 16px;font-weight:bold">{{data.episode.name}}<span class="air-date" style="font-size: 14px;font-weight:normal">({{data.episode.air_date}})</span></div>
+                        <div style="display: flex;padding-top:10px;">
+                                <p style="font-weight: bold;"> {{data.directorList!="" ? 'Directing :' : ''}}  </p>
+                                    <span style="padding-left: 1px">{{data.directorList}}</span>
+                                </div>
+                       
+                    </div>
+                    <div>{{data.episode.overview}}</div>
+                    
+                </div>
+               
+            </div> 
+            
+           
+</div>
