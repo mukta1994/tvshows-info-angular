@@ -179,3 +179,16 @@ overflow: hidden;
 .mat-form-field .mat-form-field-underline {
     width: 0% !important;
 }
+.example-full-width{
+    width:50%;
+}
+
+.mat-autocomplete-panel .mat-option{
+    margin:10px 0;
+    border-bottom: 1px solid darkgray;
+    padding: 37px;
+}
+
+.mat-autocomplete-panel {
+    border-radius: 8px;
+}

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnDestroy } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -11,25 +11,30 @@ import { DataService } from '../services/data.service';
 export class SearchResultsComponent implements OnInit {
 
   constructor(private _Activatedroute:ActivatedRoute,private dataService: DataService) { 
-    this.getData();
+    this.getData(this.query);
   }
+  
+  @Input() search_data:any;
   defaultElevation = 2;
   raisedElevation = 8;
   i=0;
   dataset = [];
-  query=this._Activatedroute.snapshot.paramMap.get("query");
+  query:any;
+  
   ngOnInit(): void {
-     this.getData();
+    this.query=this._Activatedroute.snapshot.paramMap.get("query");
+     this.getData(this.query);
+    
   }
 
   onScroll() {
-    this.getData()
+    this.getData(this.query)
   }
-  getData(){
+  getData(event){
     this.i++;
-  
-    this.dataService.sendGetRequest(this.query,this.i).subscribe((data:{ results: any[]} )=>{
-      console.log(data);
+    if(event==undefined)
+      event=this._Activatedroute.snapshot.paramMap.get("query");
+    this.dataService.sendGetRequest(event,this.i).subscribe((data:{ results: any[]} )=>{
       this.dataset = [...this.dataset];
       data.results.map((item) => { 
         this.dataService.getDetails(item.id).subscribe((data)=>{
@@ -37,6 +42,13 @@ export class SearchResultsComponent implements OnInit {
         })
       })
     });
+  }
+
+  fetchResults(eve){
+    this.dataset = [];
+    this.i=0;
+    this.getData(eve);
+
   }
 
  

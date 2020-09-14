@@ -1,4 +1,4 @@
-<div style="padding:20px 0"><app-search></app-search>
+<div style="padding:20px 0" ><app-search (searchEvent)="fetchResults($event)"></app-search>
 </div>
 <ng-template #t let-fill="fill">
         <span class="star" [class.full]="fill === 100">

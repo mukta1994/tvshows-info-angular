@@ -1,6 +1,6 @@
 input {
     font-family: 'Inconsolata', monospace;
-    width: 40%;
+    /* width: 40%; */
     height: 50px;
     outline: none;
     border: none;
@@ -33,6 +33,11 @@ input {
   color: #ffffff;
     background: #fe4066;
     padding-top:5px;
+  }
+
+  .search .cdk-overlay-pane {
+    width:40% !important;
+    left:27%;
   }
 
   .search div:hover{
