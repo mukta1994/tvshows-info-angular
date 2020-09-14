@@ -1,12 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DataService } from '../services/data.service';
 
-export interface DialogData {
-   episode: any;
-   directorList:any
-}
+
 
 
 @Component({
@@ -21,45 +18,48 @@ export class DetailsComponent implements OnInit {
   details:any;
   defaultElevation = 2;
   raisedElevation = 8;
-  seasonEpisodes=[]
-  isChecked = false;
+  seasonEpisodes:any;
   directorList:any;
+  viewmore=false;
+  selected_season:any;
+  default_path:any;
+
+
 
   ngOnInit(): void {
     this.dataService.getDetails(this.id).subscribe((data)=>{
-      this.details=data
-      console.log(this.details);
-      this.dataService.getSeasons(this.details.seasons,this.details.id);
-      
-      this.details.seasons.map((item) => { 
-        this.dataService.getSeasons(item.season_number,this.details.id).subscribe((data)=>{
-          this.seasonEpisodes.push(data) 
-        })
+      this.details=data;
+      if(this.details && this.details.seasons.length){
+      this.selected_season=this.details.seasons[0];
+      this.dataService.getSeasons(this.details.seasons[0].season_number,this.details.id).subscribe((data)=>{
+        this.seasonEpisodes=data;
       })
-      console.log(this.seasonEpisodes)
+    }
+      // this.dataService.getSeasons(this.details.seasons,this.details.id);   
+      // this.details.seasons.map((item) => { 
+      //   this.dataService.getSeasons(item.season_number,this.details.id).subscribe((data)=>{
+      //     this.seasonEpisodes.push(data) 
+      //   })
+      // })
 
     })
   }
 
-  openDialog(episode) {
-    //this.directorList=Object.keys(episode.crew).map(function(k){return episode.crew[name]}).join(",")
-    this.directorList=Array.prototype.map.call(episode.crew.filter(t=>t.job ==='Director'), function(item) { return item.name; }).join(",");
-    console.log(this.directorList,"ghjk");
-    this.dialog.open(DialogDataExampleDialog, {
-      width:'50%',
-      data: {
-        episode: episode,
-        directorList:this.directorList
-      }
-    });
+
+  onSeasonChange(selected_data,id){     
+    this.getEpisodes(selected_data,id);
   }
 
+  getEpisodes(sel_data,id){
+    this.dataService.getSeasons(sel_data.value.season_number,id).subscribe((data)=>{
+      this.seasonEpisodes=data;
+    })
+  }
+
+
+
+
+
 }
 
-@Component({
-  selector: 'dialog-data',
-  templateUrl: 'dialog-data.html',
-})
-export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-}
+

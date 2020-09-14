@@ -11,20 +11,13 @@
     background-color: rgba(152, 66, 211, 0.63);
 
   } 
-
-  .info{
-      display:flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding:20px;
-  }
-
+  
   .shows-display, .season-display{
       display:grid;
       grid-gap:10px;
     grid-auto-flow: column;
-    /* grid-auto-columns: 17%; */
-    padding:20px 0px
+    grid-auto-columns: min-content;
+        padding:20px 0px
   }
 
 .season-name{
@@ -59,12 +52,12 @@
     margin: 0 0px 0px 2px;
 }
 .season-image:first-child {
-    margin-top: 0;
+    margin: auto 0;
 }
 
 .default-img{
-    height: 400px;
-    width:260px
+    height: 415px;
+    width:300px
 }
 
 .card-content .mat-card-image{
@@ -72,6 +65,81 @@
     justify-content: center;
 }
 
+.season-display .mat-card-image:first-child {
+    margin-top:0px;
+}
+
+.mat-card{
+    margin:8px;
+}
+
+.details-container .poster_img img{
+    height:450px;
+}
+
+@media only screen and (max-width: 768px) {
+    .details{
+        padding:25px 0 0 0;
+    }
+    .details .info{
+        padding: 0px;
+    }
+    .details-container{
+        flex-direction: column;  
+        padding:10px;        
+      }
+      .poster_img {
+          margin:auto;
+      }
+      .season-content{
+        flex-direction:column;
+    }
+    .season-image:first-child {
+        margin:0 auto;
+    }
+    .details-container .poster_img img{
+        height:auto;
+    }
+    .season-display .mat-card-image:first-child {
+        margin-top:-16px;
+    }
+  }
+
+  .season-display .fancy-card{
+      cursor: pointer;
+  }
+
+  .view-more{
+    color:#c70062;
+    cursor: pointer;
+  }
+
+  .season-display .mat-card{
+      max-width: 185px;
+  }
+
+    .mat-form-field {
+        display: block;
+        background-color: cornflowerblue;
+        border-radius:9px;
+        margin:15px;
+    border: 2px solid cornflowerblue;
+    }
+    .mat-form-field-flex {
+        width:400px;
+    }
+    .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+        transform:inherit !important;
+    }
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+        background-color:cornflowerblue!important;
+    }
+    
+    .mat-form-field .mat-form-field-underline {
+        width: 0% !important;
+    }
+
+  
   
   .theme-pink {
     --radius: 2em;
