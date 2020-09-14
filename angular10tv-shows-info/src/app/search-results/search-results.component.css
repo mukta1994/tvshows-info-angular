@@ -6,14 +6,8 @@
     grid-auto-rows: minmax(100px, auto);
 }
 
-.air-date{
-    color:gray;
-}
-
-.overview{
-    text-overflow: ellipsis;
-white-space: nowrap;
-overflow: hidden;
+.show-info{
+    margin-top:8px;
 }
 
 .fancy_card:hover {
@@ -29,19 +23,16 @@ overflow: hidden;
 
 .mat-card-image{
     width: fit-content;
-    margin: auto;
+    margin: 0 auto;
     display: block;
     padding-top: 0px;
 }
 .mat-card-image:first-child {
-    margin-top: auto;
+    margin-top: 0 auto;
 }
- .card-content{
+.card-content{
     display: flex;
-    flex-direction:column;
-    height: 100%;
-    width: 100%;
- }
+}
 
  .default-img{
      height:270px;
@@ -49,8 +40,7 @@ overflow: hidden;
 
  @media only screen and (max-width: 992px) {
     .shows-display{     
-          grid-template-columns: repeat(2, 50%);
-          
+          grid-template-columns: repeat(2, 50%);        
       }
   }
 
@@ -59,4 +49,5 @@ overflow: hidden;
           grid-template-columns: repeat(1, 100%);
          
       }
+  
   }

@@ -2,15 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.mat-chip-list-wrapper{
-    display: block !important;
-}
+
 
 .content{
     margin-top:28px!important;
 }
 
-.details img{
+.details img, .shows-display img{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -32,16 +30,24 @@ overflow: hidden;
 .info{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding:20px;
 }
 
- .details-container{
+ .details-container,.dialogue-container{
     display: flex;
 }
 
 .episode-img{
     margin:auto;
+}
+.dialogue-container .episode-img{
+    margin:auto 0;
+}
+
+.default-img{
+    width:180px;
+    box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.1);
 }
 
 
@@ -62,3 +68,114 @@ overflow: hidden;
     margin: auto 0;
 }
 
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    color:darkgrey;
+    margin:8px 0;
+  }
+  .full {
+    color: goldenrod;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: goldenrod;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  .shows-display .mat-chip-list-wrapper{
+      justify-content: center;
+  }
+
+  .show-info .overview,.short-overview,.episode-name{
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    }
+
+    .episode-name{
+        -webkit-line-clamp: 2;
+
+    }
+
+    .card-content,.season-display .card-content{
+        display: flex;
+        flex-direction:column;
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+     }
+    
+     @media only screen and (max-width: 992px) {
+
+         .dialogue-container{
+          flex-direction: column!important;         
+        }
+        .dialogue-container .episode-img{
+            margin:0 auto;
+            display:block;
+        }
+        .dialogue-container .info{
+            text-align: center;
+        }
+    }
+
+  @media only screen and (max-width: 768px) {
+
+  .details-container{
+    flex-direction: column!important;         
+  }
+  .poster_img{
+      margin:0 auto;
+      display:block;
+  }
+  .mat-chip-list-wrapper{
+    justify-content: center;
+}
+.info {
+    align-items: center;
+}
+
+.chip-section{
+    display: contents;
+}
+.dialogue-container .info, .details-overview,.short-overview{
+    text-align: center;
+}
+
+.dialogue-container .info, .details-overview{
+    padding:20px 0px 0 0;
+}
+}
+
+.air-date{
+    color:gray;
+}
+
+*:focus, *:active {
+    outline: none;
+}
+
+.mat-form-field-flex {
+    width:400px;
+}
+.mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    transform:inherit !important;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color:cornflowerblue!important;
+}
+
+.mat-form-field .mat-form-field-underline {
+    width: 0% !important;
+}

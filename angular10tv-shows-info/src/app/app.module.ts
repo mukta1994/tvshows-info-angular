@@ -15,11 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DetailsComponent } from './details/details.component';
-import { DialogDataExampleDialog } from './details/details.component';
+import { DialogDataExampleDialog } from './season-episodes/season-episodes.component';
 import { MaterialElevationDirective } from './material-elevation.directive';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SeasonEpisodesComponent } from './season-episodes/season-episodes.component';
 
 
 
@@ -30,7 +34,7 @@ import { CommonModule } from '@angular/common';
     SearchResultsComponent,
     DetailsComponent,
     MaterialElevationDirective,
-    DialogDataExampleDialog
+    DialogDataExampleDialog, SeasonEpisodesComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +48,10 @@ import { CommonModule } from '@angular/common';
     MatSlideToggleModule,
     MatDialogModule,
     InfiniteScrollModule,
-    CommonModule
-  ],
+    CommonModule,
+    MatInputModule,
+    NgbModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
