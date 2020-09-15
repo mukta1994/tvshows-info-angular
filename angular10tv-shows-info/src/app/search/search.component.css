@@ -14,6 +14,17 @@ input {
 
   }
 
+  .search-bar-container{
+    background:linear-gradient( rgba(34.51%, 20.43%, 16.86%, 1.00) 150px, rgba(20.78%, 26.27%, 24.71%, 0.84)100%),url('/assets/bg-img4.jpg');
+    height:500px;
+    display: flex;
+
+  }
+
+  .search-bar-container form{
+    margin:auto;
+  }
+
   input:hover{
     box-shadow: 0 0 25px 0 rgb(184, 181, 182),
     0 20px 25px 0 rgba(0, 0, 0, 0.2);
@@ -48,6 +59,8 @@ input {
   .search{
       display: flex;
       justify-content:center;
+      color:white;
+      cursor: pointer;
   }
 
   input:focus, textarea:focus, select:focus{
@@ -56,4 +69,34 @@ input {
 
 *:focus {
     outline: none;
+}
+.shows-display{
+  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.mat-card-image{
+  width: fit-content;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0px;
+}
+.mat-card-image:first-child {
+  margin-top: 0 auto;
+}
+.card-content{
+  display: flex;
+}
+
+.default-img{
+  height:277px;
+  width: 185px;
+}
+
+.select-list  .mat-form-field-appearance-fill .mat-form-field-flex {
+ 
+    background-color:transparent!important;
 }

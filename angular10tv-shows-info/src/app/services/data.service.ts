@@ -25,6 +25,23 @@ export class DataService {
 
   }
 
+  public getpopularShows(i){
+    return this.httpClient.get(this.REST_API_SERVER+"tv/popular?"+this.apikey+"&page="+i);
+
+  }
+
+  /**
+   * name
+   */
+  public getTopRatedShows(i) {
+    return this.httpClient.get(this.REST_API_SERVER+"tv/top_rated?"+this.apikey+"&page="+i);
+  }
+
+  public getTodaysAiring(i) {
+    return this.httpClient.get(this.REST_API_SERVER+"tv/airing_today?"+this.apikey+"&page="+i);
+  }
+
 }
+
 
  

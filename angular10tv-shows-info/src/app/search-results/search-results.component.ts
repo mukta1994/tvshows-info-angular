@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -15,8 +15,6 @@ export class SearchResultsComponent implements OnInit {
   }
   
   @Input() search_data:any;
-  defaultElevation = 2;
-  raisedElevation = 8;
   i=0;
   dataset = [];
   query:any;
@@ -43,6 +41,7 @@ export class SearchResultsComponent implements OnInit {
       })
     });
   }
+  
 
   fetchResults(eve){
     this.dataset = [];

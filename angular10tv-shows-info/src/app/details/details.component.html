@@ -3,14 +3,17 @@
         <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
     </span>
 </ng-template>
-<div class="details" style="background-image:url('../assets/bg-img4.jpg')" *ngIf="details">
+<div class="details-img">
+<div class="details" 
+style="background:linear-gradient( rgba(65.5%,76.9%,89.4%, 1.00) 150px, rgba(40.78%, 26.27%, 24.71%, 0.84)100%),url('https://image.tmdb.org/t/p/w1280/{{details.backdrop_path}}')"
+*ngIf="details">
     <!-- <div class="details" style="background-image:url('https://image.tmdb.org/t/p/w185/{{details.backdrop_path}}')"> -->
     <div class="container" >
         <div class="details-container">
             <div  class="poster_img">
                 <!-- <img src="https://image.tmdb.org/t/p/w185/{{details.poster_path}}" style="height: 450px"> -->
                 <img *ngIf="details.poster_path; else defaultimage"
-                    src="https://image.tmdb.org/t/p/w185/{{details.poster_path}}">
+                    src="https://image.tmdb.org/t/p/w342/{{details.poster_path}}">
                 <ng-template #defaultimage><img class="default-img" src="../assets/default.jpg"></ng-template>
             </div>
             <div class="info">
@@ -54,7 +57,7 @@
             </span>
 
     </div>
-</div>
+</div></div>
 <div class="container" *ngIf="details && details.seasons.length">
     <div>
         <mat-form-field appearance="fill">

@@ -3,12 +3,11 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DataService } from '../services/data.service';
 
 
+
 export interface DialogData {
   episode: any;
   directorList:any
 }
-
-
 
 @Component({
   selector: 'app-season-episodes',
@@ -19,15 +18,10 @@ export class SeasonEpisodesComponent implements OnInit {
 
   constructor(public dialog: MatDialog,private dataService: DataService) { }
   @Input() season_data:any;
-  defaultElevation = 2;
-  raisedElevation = 8;
   isChecked = false;
   directorList:any;
   screenWidth:any;
   dialogue_box:any;
-
-
-
 
   ngOnInit(): void {
   }

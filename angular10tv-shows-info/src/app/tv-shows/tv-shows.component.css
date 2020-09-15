@@ -1,0 +1,29 @@
+.tv-shows{
+ margin:15px 10px;
+}
+
+.tv-shows .title{
+    width:100%;
+    background-color: rgba(40.78%, 26.27%, 24.71%, 0.84);
+    font-size:18px;
+    font-weight: bold;
+    color: whitesmoke;
+    height: 55px;
+    text-align: center;
+    padding: 17px;
+    border-radius: 8px;
+}
+
+.tv-shows .show-more{
+    display: flex;
+    justify-content: center;
+}
+
+.tv-shows-info{
+    display:grid;
+    grid-gap:10px;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+      padding:20px 0px;
+      cursor: pointer;
+}

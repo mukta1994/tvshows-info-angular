@@ -1,9 +1,7 @@
 import { Component, OnInit, Inject,HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { DataService } from '../services/data.service';
-
-
 
 
 @Component({
@@ -16,15 +14,11 @@ export class DetailsComponent implements OnInit {
   constructor(private _Activatedroute:ActivatedRoute,private dataService: DataService,public dialog: MatDialog) { }
   id=this._Activatedroute.snapshot.paramMap.get("id");
   details:any;
-  defaultElevation = 2;
-  raisedElevation = 8;
   seasonEpisodes:any;
   directorList:any;
   viewmore=false;
   selected_season:any;
   default_path:any;
-
-
 
   ngOnInit(): void {
     this.dataService.getDetails(this.id).subscribe((data)=>{
