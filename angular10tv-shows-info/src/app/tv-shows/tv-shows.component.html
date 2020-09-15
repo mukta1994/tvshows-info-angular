@@ -1,0 +1,34 @@
+<div style="padding:20px 0" ><app-search></app-search>
+</div>
+<div class="container">
+<mat-card class="tv-shows" *ngFor="let item of all_types">
+    <div class="title">{{item.name}}</div>
+<div class="tv-shows-info" style="overflow-x:scroll">
+        <mat-card class="fancy-card" *ngFor="let shows of item.data" appMaterialElevation
+            [defaultElevation]="2" raisedElevation="16" [routerLink]="['./details', shows.id]">
+            <mat-card-content class="card-content">
+                <div mat-card-image>
+                    <img *ngIf="shows.backdrop_path!=null; else defaultimage3"
+                        src="https://image.tmdb.org/t/p/w185/{{shows.backdrop_path}}">
+                    <ng-template #defaultimage3><img src="../assets/default.jpg"></ng-template>
+                </div>
+                <div style="text-align: center;width:inherit">
+                    <div ngClass="episode-name" style="font-size: 16px;font-weight:bold">{{shows.name}}</div>
+                    <div class="air-date">{{shows.air_date | date}} </div>
+                    <ng-template #t let-fill="fill">
+                            <span class="star" [class.full]="fill === 100">
+                                <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+                            </span>
+                        </ng-template>
+                    <ngb-rating [max]="1" [rate]="shows.vote_average/10" [starTemplate]="t" [readonly]="true">
+                    </ngb-rating>
+                    <pre>{{shows.vote_average| number:'1.0-1'}}/10({{shows.vote_count}})</pre>
+                </div>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+    <div class="show-more"><button mat-raised-button color="primary">view more</button></div>
+</mat-card>
+</div>

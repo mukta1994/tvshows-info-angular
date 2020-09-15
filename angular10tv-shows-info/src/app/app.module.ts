@@ -30,6 +30,8 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SeasonEpisodesComponent } from './season-episodes/season-episodes.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { TvShowsComponent } from './tv-shows/tv-shows.component';
+import { GridDataComponent } from './grid-data/grid-data.component';
 
 
 
@@ -40,7 +42,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     SearchResultsComponent,
     DetailsComponent,
     MaterialElevationDirective,
-    DialogDataExampleDialog, SeasonEpisodesComponent
+    DialogDataExampleDialog, SeasonEpisodesComponent, TvShowsComponent, GridDataComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,8 @@
 
     
 </div> -->
-<form class="container" (ngSubmit)="onSubmit(test);">
+<div class="search-bar-container">
+<form class="container">
 
 <mat-form-field class="example-full-width" style="margin: 20px;width:100%">
         <div class="search" >
@@ -23,9 +24,11 @@
              {{option.name}}
            </mat-option>
          </mat-autocomplete>
-         <div class="search" (click)="onSubmit(test)">Search</div>
+         <div class="search" [routerLink]="['../../results', test]">Search</div>
         </div>
                
-              </mat-form-field></form>
+              </mat-form-field>
+            </form>
+          </div>
 <!-- <app-search-results [search_data]='dataset'></app-search-results> -->
 

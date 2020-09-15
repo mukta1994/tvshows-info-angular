@@ -7,12 +7,13 @@
 </ng-template>
 <div class="container">
     <div class="search-results" infinite-scroll (scrolled)="onScroll()">
+        <!-- <app-grid-data [data_set]="dataset"></app-grid-data> -->
+
         <div class="shows-display" >
-            <mat-card class="fancy-card" *ngFor="let show of dataset"  [routerLink]="['../../details', show.id]" [state]="{ hello: show }" appMaterialElevation
-                [defaultElevation]="defaultElevation" raisedElevation="16">
+            <mat-card class="fancy-card" *ngFor="let show of dataset"  [routerLink]="['../../details', show.id]" appMaterialElevation
+                [defaultElevation]="2" raisedElevation="16">
                 <mat-card-content class="card-content" >
                     <div mat-card-image>
-                        <!-- <img  src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}"> -->
                         <img *ngIf="show.poster_path!=null; else defaultimg" src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}">
                             <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg" ></ng-template>
                     </div>

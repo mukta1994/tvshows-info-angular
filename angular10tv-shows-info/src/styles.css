@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: auto;    background-color:gainsboro;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
@@ -19,6 +20,10 @@ overflow: hidden;
 }
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
     background-color: darkseagreen;
+}
+
+.mat-card{
+    background-color: #a7e3e4
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
@@ -60,7 +65,7 @@ overflow: hidden;
     line-height: 35px;
     border-radius: 25px;
     margin:1px 1px 0px 0px;
-    background-color: pink;
+    background-color: darkorange;
   }
 
 .poster_img{
@@ -108,7 +113,7 @@ overflow: hidden;
 
     }
 
-    .card-content,.season-display .card-content{
+    .card-content,.season-display .card-content, .tv-shows .card-content{
         display: flex;
         flex-direction:column;
         height: 100%;
@@ -166,19 +171,11 @@ overflow: hidden;
     outline: none;
 }
 
-.mat-form-field-flex {
-    width:400px;
-}
-.mat-form-field-appearance-fill .mat-select-arrow-wrapper {
-    transform:inherit !important;
-}
-.mat-form-field-appearance-fill .mat-form-field-flex {
-    background-color:cornflowerblue!important;
-}
-
 .mat-form-field .mat-form-field-underline {
     width: 0% !important;
 }
+
+
 .example-full-width{
     width:50%;
 }
@@ -199,4 +196,10 @@ overflow: hidden;
  font-size: 18px;
  font-weight: bold;
 text-decoration: none;
+}
+
+
+.tv-shows-info img{
+    width: 185px;
+    height: 103px;
 }

@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DetailsComponent } from './details/details.component';
+import { TvShowsComponent } from './tv-shows/tv-shows.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: SearchComponent,pathMatch:"full"
+    component: TvShowsComponent ,pathMatch:"full"
   },
   {
     path: 'results/:query',
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DetailsComponent,pathMatch:"full"
+  },
+  {
+    path: 'tv',
+    component: SearchComponent,pathMatch:"full"
   }
 
 ];

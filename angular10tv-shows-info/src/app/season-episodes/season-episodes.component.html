@@ -1,14 +1,7 @@
-<!-- <mat-form-field appearance="fill">
-        <mat-select [(ngModel)]="selected_season" (selectionChange)="onSeasonChange($event)">
-          <mat-option *ngFor="let data of season_data.seasons" [(ngModel)]="data.id" ngDefaultControl [value]="data" (change)="episode_data = data">
-            {{data.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
-<!-- <div class="container" *ngFor="let season of season_data"> -->
+
         <div class="container" >
 
-        <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="defaultElevation"
+        <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="2"
             raisedElevation="16">
             <mat-card-content class="season-content">
                 <div mat-card-image class="season-image">
@@ -37,12 +30,12 @@
         </mat-card>
         <div class="season-display" [ngClass]="{'hidden': isChecked+season_data.season_number==0}" style="overflow-x:scroll">
             <mat-card class="fancy-card" *ngFor="let episode of season_data.episodes" appMaterialElevation
-                [defaultElevation]="defaultElevation" raisedElevation="16" (click)="openDialog(episode)">
+                [defaultElevation]="2" raisedElevation="16" (click)="openDialog(episode)">
                 <mat-card-content class="card-content">
-                    <div mat-card-image>
+                    <div mat-card-image class="episode-img">
                         <img *ngIf="episode.still_path!=null; else defaultimage3"
                             src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}">
-                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="width: 155px;height:120px"></ng-template>
+                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="width: 185px"></ng-template>
                     </div>
                     <div style="text-align: center;width:inherit">
 
