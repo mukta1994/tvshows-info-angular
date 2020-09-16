@@ -16,6 +16,7 @@
 }
 
 
+
 .season-name{
     padding-top: 15px;
     height:50px;
@@ -69,17 +70,34 @@
     margin:8px;
 }
 
+.info .title{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info .season-overview{
+    padding-top:15px
+}
+
+.season-content .info div{
+    padding-top:4px;
+    padding-left: 3px;
+}
+
+.season-content .toggle-episode div{
+    padding:0;
+}
 
 @media only screen and (max-width: 768px) {
     .details{
-        padding:25px 0 0 0;
+        padding: 0;
     }
     .details .info{
         padding: 0px;
     }
     .details-container{
         flex-direction: column;  
-        padding:10px;        
+        padding:12px 0 0 0px;        
       }
       .poster_img {
           margin:auto;
@@ -91,7 +109,7 @@
         margin:0 auto;
     }
     .details-container .poster_img img{
-        height:auto;
+        height:231px;
     }
     .season-display .mat-card-image:first-child {
         margin-top:-16px;
@@ -113,11 +131,27 @@
 
     .mat-form-field {
         display: block;
-        background-color: rgba(104, 67, 63, 0.84);
+        /* background-color: rgba(104, 67, 63, 0.84); */
+        background-color:rgba(35 37 36 / 84%);
         border-radius:9px;
         margin:15px;
-    border: 2px solid rgba(104, 67, 63, 0.84);;
+        color:white;
     }
+
+   .run-time,.air-date{
+       color: #b1afaf;
+       font-size: 15px;
+       font-weight: normal;
+   }
+
+   .details-container .run-time,.details-container .air-date{
+    color: #4e4646
+   }
+  
+.details-title{
+    font-size: 20px;
+    font-weight:bold;
+}
   
   .hidden{
       display: none;
