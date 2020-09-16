@@ -18,7 +18,7 @@ input {
     background:linear-gradient( rgba(34.51%, 20.43%, 16.86%, 1.00) 150px, rgba(20.78%, 26.27%, 24.71%, 0.84)100%),url('/assets/bg-img4.jpg');
     height:500px;
     display: flex;
-
+    margin-bottom:20px;
   }
 
   .search-bar-container form{
@@ -99,4 +99,24 @@ input {
 .select-list  .mat-form-field-appearance-fill .mat-form-field-flex {
  
     background-color:transparent!important;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-bar-container{
+    height:250px;
+  }
+}
+
+.search .disabled{
+  cursor:none;
+  background-color: transparent;
+}
+
+.search .disabled:hover{
+  box-shadow: none;
+}
+
+.shows-autocomplete img{
+  height:60px;
+  width:50px;
 }

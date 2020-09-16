@@ -9,7 +9,6 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +31,9 @@ import { SeasonEpisodesComponent } from './season-episodes/season-episodes.compo
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { GridDataComponent } from './grid-data/grid-data.component';
+import { FilterPipe } from './filters/filter.pipe';
+import { MinuteToHoursPipe } from './filters/minute-to-hours.pipe';
+
 
 
 
@@ -42,7 +44,7 @@ import { GridDataComponent } from './grid-data/grid-data.component';
     SearchResultsComponent,
     DetailsComponent,
     MaterialElevationDirective,
-    DialogDataExampleDialog, SeasonEpisodesComponent, TvShowsComponent, GridDataComponent
+    DialogDataExampleDialog, SeasonEpisodesComponent, TvShowsComponent, GridDataComponent,FilterPipe, MinuteToHoursPipe
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@ import { DataService } from '../services/data.service';
 export class AllTypes
 {
   public data: any;
-  public name: any;
+  public name: string;
+  public param:string;
 }
 
 @Component({
@@ -15,6 +16,7 @@ export class AllTypes
 export class TvShowsComponent implements OnInit {
 
   all_types: AllTypes[]=[];
+  errorMessage="";
 
   constructor(private dataService: DataService) { }
 
@@ -28,10 +30,14 @@ export class TvShowsComponent implements OnInit {
     this.dataService.getpopularShows(1).subscribe((data:{results:any})=>{
       this.all_types.push( {
         data: data.results,
-        name:"Popular shows"
+        name:"Popular Shows",
+        param:"popularShows"
+
       })
       console.log(this.all_types,"test")
-    })
+    },(error) => {
+      this.handleError(error);
+     })
 
   }
 
@@ -39,17 +45,30 @@ export class TvShowsComponent implements OnInit {
     this.dataService.getTopRatedShows(1).subscribe((data:{results:any})=>{
       this.all_types.push({
         data: data.results,
-        name:"Top rated shows"
+        name:"Top Rated Shows",
+        param:"topShows"
+
       })
-    })
+    },(error) => {
+      this.handleError(error);
+     })
   }
 
   getTodaysShows(){
     this.dataService.getTodaysAiring(1).subscribe((data:{results:any})=>{
       this.all_types.push({
         data: data.results,
-        name:"Today airing"
+        name:"Airing Today",
+        param:"airingToday"
       })
-    })
+    },(error) => {
+      this.handleError(error);
+     })
+  }
+
+  handleError(err){
+    this.errorMessage = err.message; 
+    console.log(this.errorMessage);
+    alert("something went wrong with status code "+err.status);
   }
 }

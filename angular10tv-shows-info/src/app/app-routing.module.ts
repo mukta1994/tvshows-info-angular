@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'tv',
     component: SearchComponent,pathMatch:"full"
+  },
+  {
+    path: ':type',
+    component: SearchResultsComponent,pathMatch:"full"
   }
 
 ];

@@ -1,26 +1,27 @@
 
         <div class="container" >
-
+                <mat-card *ngFor="let season of season_data | filter:'latest' ">
         <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="2"
             raisedElevation="16">
             <mat-card-content class="season-content">
                 <div mat-card-image class="season-image">
-                    <img *ngIf="season_data.poster_path!=null; else defaultimage2"
-                        src="https://image.tmdb.org/t/p/w185/{{season_data.poster_path}}">
+                    <img *ngIf="season.poster_path!=null; else defaultimage2"
+                        src="https://image.tmdb.org/t/p/w185/{{season.poster_path}}">
                     <ng-template #defaultimage2><img src="../assets/default.jpg" style="width: 185px"></ng-template>
                 </div>
                 <div class="info" style="width:inherit">
 
-                    <div style="font-size: 16px;font-weight:bold">{{season_data.name}}</div>
-                    <div class="air-date">{{season_data.air_date | date}}</div>
-                    <div class="" style="padding-top:15px">{{season_data.overview}}</div>
-                    <div *ngIf="season_data.episodes.length==0; else episodeavailable">No episodes available</div>
+                    <div class="title">{{season.name}}</div>
+                    <div class="air-date">{{season.air_date | date}}</div>
+                    <div >{{season.episodes.length}} episodes</div>
+                    <div class="season-overview">{{season.overview}}</div>
+                    <div *ngIf="season.episodes.length==0; else episodeavailable">No episodes available</div>
                     <ng-template #episodeavailable>
 
-                    <mat-slide-toggle [(ngModel)]="isChecked+season_data.season_number">
+                    <mat-slide-toggle class="toggle-episode" [(ngModel)]="isChecked+season._id">
 
-                        <div *ngIf="isChecked+season_data.season_number==false; else elseBlock">View episodes</div>
-                        <ng-template #elseBlock>Hide episodes</ng-template>
+                        <div *ngIf="isChecked+season._id==false; else elseBlock">View Episodes</div>
+                        <ng-template #elseBlock>Hide Episodes</ng-template>
                     </mat-slide-toggle></ng-template>
                 </div>
 
@@ -28,14 +29,14 @@
             </mat-card-content>
 
         </mat-card>
-        <div class="season-display" [ngClass]="{'hidden': isChecked+season_data.season_number==0}" style="overflow-x:scroll">
-            <mat-card class="fancy-card" *ngFor="let episode of season_data.episodes" appMaterialElevation
+        <div class="season-display" [ngClass]="{'hidden': (isChecked+season._id==0)}" style="overflow-x:scroll">
+            <mat-card class="fancy-card" *ngFor="let episode of season.episodes" appMaterialElevation
                 [defaultElevation]="2" raisedElevation="16" (click)="openDialog(episode)">
                 <mat-card-content class="card-content">
                     <div mat-card-image class="episode-img">
                         <img *ngIf="episode.still_path!=null; else defaultimage3"
                             src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}">
-                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="width: 185px"></ng-template>
+                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="height:103px;width:185px;"></ng-template>
                     </div>
                     <div style="text-align: center;width:inherit">
 
@@ -48,14 +49,14 @@
                             </ng-template>
                         <ngb-rating [max]="1" [rate]="episode.vote_average/10" [starTemplate]="t" [readonly]="true">
                         </ngb-rating>
-                        <pre>{{episode.vote_average| number:'1.0-1'}}/10({{episode.vote_count}})</pre>
+                        <pre>{{episode.vote_average| number:'1.0-1'}}/10({{episode.vote_count}} votes)</pre>
                     </div>
 
                 </mat-card-content>
 
             </mat-card>
         </div>
-
+    </mat-card>
     </div>
 
   
