@@ -1,4 +1,4 @@
-<div style="padding:20px 0" ><app-search></app-search>
+<div><app-search></app-search>
 </div>
 <div class="container">
 <mat-card class="tv-shows" *ngFor="let item of all_types">
@@ -22,13 +22,13 @@
                         </ng-template>
                     <ngb-rating [max]="1" [rate]="shows.vote_average/10" [starTemplate]="t" [readonly]="true">
                     </ngb-rating>
-                    <pre>{{shows.vote_average| number:'1.0-1'}}/10({{shows.vote_count}})</pre>
+                    <pre>{{shows.vote_average| number:'1.0-1'}}/10({{shows.vote_count}} votes)</pre>
                 </div>
 
             </mat-card-content>
 
         </mat-card>
     </div>
-    <div class="show-more"><button mat-raised-button color="primary">view more</button></div>
+    <div class="show-more"><button mat-raised-button color="primary" [routerLink]="['./',item.param]">View More</button></div>
 </mat-card>
 </div>
