@@ -260,10 +260,16 @@ overflow: hidden;
     margin:0;
 }
 
-
-
 .run-time,.air-date{
     color: #b1afaf;
     font-size: 15px;
     font-weight: normal;
+}
+
+.search-results-container .search-bar-container{
+    height:200px!important;
+}
+
+.search-results-container .search-bar-container .title{
+display: none;
 }
