@@ -23,7 +23,8 @@ overflow: hidden;
 }
 
 .mat-card{
-    background-color: #a7e3e4
+    background-color: #465656;
+    color: white;
 }
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
@@ -120,6 +121,15 @@ overflow: hidden;
         width: 100%;
         justify-content: space-between;
      }
+
+     .show-more .mat-raised-button :hover{
+        background-color: rgb(45 37 36 / 64%);
+        font-size: 17px;
+    }
+
+    .overview, .short-overview{
+        font-size: 16px;
+    }
     
      @media only screen and (max-width: 992px) {
 
@@ -163,10 +173,6 @@ overflow: hidden;
 }
 }
 
-.air-date{
-    color:gray;
-}
-
 *:focus, *:active {
     outline: none;
 }
@@ -190,16 +196,17 @@ overflow: hidden;
     border-radius: 8px;
 }
 
-.nav-buttons .mat-button:hover{
- color:white;
- cursor: pointer;
- font-size: 18px;
- font-weight: bold;
-text-decoration: none;
-}
-
 
 .tv-shows-info img{
     width: 185px;
     height: 103px;
+}
+
+.season-select .mat-select-value {
+    color:white!important;
+    font-size:18px;
+    font-weight:bold;
+}
+.season-select  .mat-select-arrow {
+     color: white; 
 }

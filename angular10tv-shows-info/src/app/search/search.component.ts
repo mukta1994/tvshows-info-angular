@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
   i = 0;
   shows = [];
   test = "";
+  errorMessage="";
 
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
@@ -28,10 +29,6 @@ export class SearchComponent implements OnInit {
   searchText = "";
 
   ngOnInit(): void {
-    //   this.dataService.sendGetRequest().subscribe((data:{ results: any[]} )=>{
-    //     console.log(data);
-    //     this.dataset = data.results;
-    // });
     if (this.myControl.value != null) {
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
@@ -40,17 +37,17 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-
-  //   return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-  // }
 
   onSubmit(search: string) {
     this.router.navigate(['results/' + search], {
     });
     this.shows = [];
     this.searchEvent.emit(search);
+  }
+
+  gotoDetails(id:any){
+    this.router.navigate(['details/' + id], {
+    });
   }
 
   getData(searchText) {
@@ -63,11 +60,21 @@ export class SearchComponent implements OnInit {
             this.shows.push(data)
           })
         })
-      });
+      },
+      (error) => {
+        this.handleError(error);
+       })
     }
     else
     this.shows = [];
 
+  }
+
+  handleError(err){
+    this.errorMessage = err.message; 
+    console.log(this.errorMessage);
+    alert("something went wrong with status code "+err.status);
+    this.router.navigate(["/"]);
   }
 
 

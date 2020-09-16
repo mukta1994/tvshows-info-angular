@@ -6,18 +6,25 @@
         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
         <!-- (click)="sidenav.toggle()" -->
       </button>
-      <h1>Shows</h1>
       <span class="menu-spacer"></span>
       <div class="nav-buttons">
-        <a mat-button [routerLink]="''"> search shows </a> 
+        <a mat-button [routerLink]="''" [routerLinkActive]="['is-active']"> Home </a> 
+        <div class="tabs">
+        <a mat-button [routerLink]="['','popularShows']" [routerLinkActive]="['is-active']"> Popular Shows</a> 
+        <a mat-button [routerLink]="['','topShows']" [routerLinkActive]="['is-active']"> Top Rated Shows</a> 
+        <a mat-button [routerLink]="['','airingToday']" [routerLinkActive]="['is-active']"> Airing Today</a> 
+      </div>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container>
       <mat-sidenav #sidenav>
-        <mat-nav-list>   
-          <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>        
-          <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>    
+        <mat-nav-list class="nav-buttons">   
+          <a mat-list-item [routerLink]="" [routerLinkActive]="['is-active']"> Home </a>  
+          <a mat-list-item [routerLink]="['','popularShows']" [routerLinkActive]="['is-active']"> Popular Shows</a> 
+        <a mat-list-item [routerLink]="['','topShows']" [routerLinkActive]="['is-active']"> Top Rated Shows</a> 
+        <a mat-list-item [routerLink]="['','airingToday']" [routerLinkActive]="['is-active']"> Airing Today</a> 
+          <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>    
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>

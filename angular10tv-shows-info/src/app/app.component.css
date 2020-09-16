@@ -1,3 +1,73 @@
 .mat-sidenav-content{
     background-color:#d8e2e2;
+    /* background-color:darkslategray; */
+
 }
+
+.nav-buttons .mat-button:hover, .nav-buttons .mat-list-item:hover{
+    color:rgb(238, 229, 229);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+   text-decoration: none;
+   }
+   .nav-buttons .mat-list-item{
+    color:white;
+   }
+
+   mat-toolbar-row .nav-buttons{
+       display: flex;
+   }
+
+   .is-active{
+       font-size:20px;
+   }
+
+   .mat-sidenav{
+    background-color:rgb(35 37 36 / 84%);
+       width:20%;
+   }
+
+   .mat-sidenav-container,.mat-sidenav{
+    padding-top:63px
+
+   }
+
+   ::ng-deep .mat-toolbar{
+    z-index: 999;
+    position: fixed
+  }
+  ::ng-deep .mat-tab-group{
+    margin-top:55px !important;
+  }
+  
+  ::ng-deep .mat-tab-header{
+        z-index: 999;
+        width:100vw;
+        position: fixed  !important;
+  }
+  ::ng-deep .mat-tab-body-wrapper{
+      position: relative !important;
+  }
+
+  mat-toolbar-row{
+    background-color:rgb(35 37 36 / 84%);
+
+  }
+  @media only screen and (max-width: 992px) {
+    .mat-sidenav{
+        width:auto;
+    }
+}
+
+  @media only screen and (max-width: 768px) {
+    .nav-buttons .tabs{
+        display: none;
+    }
+    .mat-sidenav-container,.mat-sidenav{
+      padding-top:56px 
+     }
+  }
+
+
+  

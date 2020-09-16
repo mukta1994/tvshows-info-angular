@@ -1,21 +1,45 @@
-<div style="padding:20px 0" ><app-search (searchEvent)="fetchResults($event)"></app-search>
+<div>
+    <app-search (searchEvent)="fetchResults($event)"></app-search>
 </div>
 <ng-template #t let-fill="fill">
-        <span class="star" [class.full]="fill === 100">
-          <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
-        </span>
+    <span class="star" [class.full]="fill === 100">
+        <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+    </span>
 </ng-template>
 <div class="container">
     <div class="search-results" infinite-scroll (scrolled)="onScroll()">
         <!-- <app-grid-data [data_set]="dataset"></app-grid-data> -->
+        <div class="filter-options">
+        <div>Filter by</div>
+        <mat-form-field appearance="fill">
+            <mat-select [value]="selected_filter" (selectionChange)="onSelectionChange($event)" style="padding-bottom: 1em">
+                <mat-option ngDefaultControl [value]="'date'">
+                    Air-date
+                </mat-option>
+                <mat-option ngDefaultControl [value]="'name asc'">
+                    Name <span>(asc)</span>
+                </mat-option>
+                <mat-option ngDefaultControl [value]="'name desc'">
+                    Name<span>(desc)</span>
+                </mat-option>
+                <mat-option ngDefaultControl [value]="'vote'">
+                    Rating
+                </mat-option>
 
-        <div class="shows-display" >
-            <mat-card class="fancy-card" *ngFor="let show of dataset"  [routerLink]="['../../details', show.id]" appMaterialElevation
-                [defaultElevation]="2" raisedElevation="16">
-                <mat-card-content class="card-content" >
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-card>
+
+        <div class="shows-display">
+            <mat-card class="fancy-card" *ngFor="let show of dataset | filter:filter_type"
+                (click)="gotoDetails(show.id)" appMaterialElevation [defaultElevation]="2" raisedElevation="16">
+                <mat-card-content class="card-content">
                     <div mat-card-image>
-                        <img *ngIf="show.poster_path!=null; else defaultimg" src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}">
-                            <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg" ></ng-template>
+                        <img *ngIf="show.poster_path!=null; else defaultimg"
+                            src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}">
+                        <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg"></ng-template>
                     </div>
                     <div class="show-info" style="text-align: center;width:inherit">
 
@@ -23,19 +47,22 @@
                         <div class="air-date">{{show.first_air_date| date}}</div>
 
                         <mat-chip-list>
-                                <mat-chip *ngFor="let network of show.networks">
-                                    {{network.name}}
-                                </mat-chip>
-                            </mat-chip-list>
-                        <ngb-rating [max]="1" [rate]="show.vote_average/10" [starTemplate]="t" [readonly]="true"></ngb-rating>
+                            <mat-chip *ngFor="let network of show.networks">
+                                {{network.name}}
+                            </mat-chip>
+                        </mat-chip-list>
+                        <ngb-rating [max]="1" [rate]="show.vote_average/10" [starTemplate]="t" [readonly]="true">
+                        </ngb-rating>
                         <pre>{{show.vote_average}}/10({{show.vote_count}})</pre>
 
                         <div class="overview">{{show.overview=="" ? 'overview not available' : show.overview}}</div>
                     </div>
 
                 </mat-card-content>
-              
+
             </mat-card>
         </div>
+    </mat-card>
+
     </div>
 </div>

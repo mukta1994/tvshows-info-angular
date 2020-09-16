@@ -1,5 +1,5 @@
 <div class="shows-display" >
-        <mat-card class="fancy-card" *ngFor="let show of data_set"  [routerLink]="['../../details', show.id]" [state]="{ hello: show }" appMaterialElevation
+        <mat-card class="fancy-card" *ngFor="let show of data_set"  [routerLink]="['../../details', show.id]"  appMaterialElevation
             [defaultElevation]="2" raisedElevation="16">
             <mat-card-content class="card-content" >
                 <div mat-card-image>
@@ -17,7 +17,7 @@
                             </mat-chip>
                         </mat-chip-list>
                     <ngb-rating [max]="1" [rate]="show.vote_average/10" [starTemplate]="t" [readonly]="true"></ngb-rating>
-                    <pre>{{show.vote_average}}/10({{show.vote_count}})</pre>
+                    <pre>{{show.vote_average}}/10({{show.vote_count}} votes)</pre>
 
                     <div class="overview">{{show.overview=="" ? 'overview not available' : show.overview}}</div>
                 </div>

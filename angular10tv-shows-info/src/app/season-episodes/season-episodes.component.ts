@@ -18,10 +18,11 @@ export class SeasonEpisodesComponent implements OnInit {
 
   constructor(public dialog: MatDialog,private dataService: DataService) { }
   @Input() season_data:any;
-  isChecked = false;
+  isChecked =false;
   directorList:any;
   screenWidth:any;
   dialogue_box:any;
+  episodeShow=false;
 
   ngOnInit(): void {
   }
@@ -42,7 +43,6 @@ export class SeasonEpisodesComponent implements OnInit {
       }
     });
   }
-
 
 
   @HostListener('window:resize', ['$event'])
