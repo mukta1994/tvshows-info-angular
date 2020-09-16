@@ -11,8 +11,14 @@ input {
     z-index: 5;
     font-weight: bolder;
     letter-spacing: 0.1em;
+    font-size:16px;
 
   }
+
+
+.mat-input-element {
+   caret-color: white; 
+}
 
   .search-bar-container{
     background:linear-gradient( rgba(34.51%, 20.43%, 16.86%, 1.00) 150px, rgba(20.78%, 26.27%, 24.71%, 0.84)100%),url('/assets/bg-img4.jpg');
@@ -91,14 +97,20 @@ input {
   display: flex;
 }
 
-
-
 .select-list  .mat-form-field-appearance-fill .mat-form-field-flex {
  
     background-color:transparent!important;
 }
 
-@media only screen and (max-width: 768px) {
+.search-bar-container p{
+  text-align: center;
+  font-size:4vw;
+  font-weight:bold;
+  font-family: cursive;
+  color:goldenrod;
+} 
+
+@media only screen and (max-width: 992px) {
   .search-bar-container{
     height:250px;
   }

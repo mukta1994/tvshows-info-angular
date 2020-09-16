@@ -1,30 +1,25 @@
-<!-- <div class="search">
-                <input type="search" [(ngModel)]="searchText" placeholder="Search text">
-         
-    <div class="search" (click)="onSubmit(searchText)">Search</div>
-</div> -->
 <div class="search-bar-container">
 
-<form class="container" (ngSubmit)="onSubmit(test);">
+  <form class="container" (ngSubmit)="onSubmit(test);">
+    <p ngClass="title">Welcome To the world of TV shows</p>
 
-<mat-form-field class="example-full-width" style="margin: 20px;width:100%">
-        <div class="search" >
-                <input type="text"
-                aria-label="Number"
-                [(ngModel)]="test"
-                matInput
-                [formControl]="myControl"
-                [matAutocomplete]="auto" (ngModelChange)="$event.value!='' ? getData($event): ''">
-         <mat-autocomplete #auto="matAutocomplete" class="shows-autocomplete">
-           <mat-option *ngFor="let option of shows" [value]="option" (click)="gotoDetails( option.id)">
-             <img class="default-img" *ngIf="option.poster_path!=null; else defaultimg" src="https://image.tmdb.org/t/p/w92/{{option.poster_path}}" >
-             <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg"></ng-template>
-             {{option.name}}
-           </mat-option>
-         </mat-autocomplete>
-         <div type="button" class="search" [ngClass]="{'disabled': test==''}" (click)="test=='' ? '' : onSubmit(test)">Search</div>
-        </div>
-               
-              </mat-form-field></form></div>
+    <mat-form-field ngClass="example-full-width" style="margin: 20px;width:100%">
+      <div class="search">
+        <input type="text" aria-label="Number" [(ngModel)]="test" matInput [formControl]="myControl"
+          [matAutocomplete]="auto" (ngModelChange)="$event.value!='' ? getData($event): ''">
+        <mat-autocomplete #auto="matAutocomplete" ngClass="shows-autocomplete">
+          <mat-option *ngFor="let option of shows" [value]="option" (click)="gotoDetails( option.id)">
+            <img class="default-img" *ngIf="option.poster_path!=null; else defaultimg"
+              src="https://image.tmdb.org/t/p/w92/{{option.poster_path}}">
+            <ng-template #defaultimg><img ngClass="default-img" src="../assets/default.jpg"></ng-template>
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+        <div type="button" class="search" [ngClass]="{'disabled': test==''}" (click)="test=='' ? '' : onSubmit(test)">
+          Search</div>
+      </div>
+
+    </mat-form-field>
+  </form>
+</div>
 <!-- <app-search-results [search_data]='dataset'></app-search-results> -->
-

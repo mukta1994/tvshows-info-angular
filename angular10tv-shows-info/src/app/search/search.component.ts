@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   i = 0;
   shows = [];
   test = "";
-  errorMessage="";
+  errorMessage = "";
 
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
@@ -45,11 +45,12 @@ export class SearchComponent implements OnInit {
     this.searchEvent.emit(search);
   }
 
-  gotoDetails(id:any){
+  gotoDetails(id: any) {
     this.router.navigate(['details/' + id], {
     });
   }
 
+  //search result which is used in autocomplete
   getData(searchText) {
     if (searchText != "") {
       this.shows = [];
@@ -61,19 +62,19 @@ export class SearchComponent implements OnInit {
           })
         })
       },
-      (error) => {
-        this.handleError(error);
-       })
+        (error) => {
+          this.handleError(error);
+        })
     }
     else
-    this.shows = [];
+      this.shows = [];
 
   }
 
-  handleError(err){
-    this.errorMessage = err.message; 
+  handleError(err) {
+    this.errorMessage = err.message;
     console.log(this.errorMessage);
-    alert("something went wrong with status code "+err.status);
+    alert("something went wrong with status code " + err.status);
     this.router.navigate(["/"]);
   }
 

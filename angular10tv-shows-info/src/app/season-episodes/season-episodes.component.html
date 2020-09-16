@@ -1,8 +1,6 @@
-
-        <div class="container" >
-                <mat-card *ngFor="let season of season_data | filter:'latest' ">
-        <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="2"
-            raisedElevation="16">
+<div class="container">
+    <mat-card *ngFor="let season of season_data | filter:'latest' ">
+        <mat-card class="fancy-card season-card" appMaterialElevation [defaultElevation]="2" raisedElevation="16">
             <mat-card-content class="season-content">
                 <div mat-card-image class="season-image">
                     <img *ngIf="season.poster_path!=null; else defaultimage2"
@@ -13,16 +11,17 @@
 
                     <div class="title">{{season.name}}</div>
                     <div class="air-date">{{season.air_date | date}}</div>
-                    <div >{{season.episodes.length}} episodes</div>
+                    <div>{{season.episodes.length}} episodes</div>
                     <div class="season-overview">{{season.overview}}</div>
                     <div *ngIf="season.episodes.length==0; else episodeavailable">No episodes available</div>
                     <ng-template #episodeavailable>
 
-                    <mat-slide-toggle class="toggle-episode" [(ngModel)]="isChecked+season._id">
+                        <mat-slide-toggle class="toggle-episode" [(ngModel)]="isChecked+season._id">
 
-                        <div *ngIf="isChecked+season._id==false; else elseBlock">View Episodes</div>
-                        <ng-template #elseBlock>Hide Episodes</ng-template>
-                    </mat-slide-toggle></ng-template>
+                            <div *ngIf="isChecked+season._id==false; else elseBlock">View Episodes</div>
+                            <ng-template #elseBlock>Hide Episodes</ng-template>
+                        </mat-slide-toggle>
+                    </ng-template>
                 </div>
 
 
@@ -30,28 +29,30 @@
 
         </mat-card>
         <div class="season-display" [ngClass]="{'hidden': (isChecked+season._id==0)}" style="overflow-x:scroll">
-            <mat-card class="fancy-card" *ngFor="let episode of season.episodes | filter:'latest-asc'" appMaterialElevation
-                [defaultElevation]="2" raisedElevation="16" >
+            <mat-card class="fancy-card" *ngFor="let episode of season.episodes | filter:'latest-asc'"
+                appMaterialElevation [defaultElevation]="2" raisedElevation="16">
                 <mat-card-content class="card-content">
                     <div mat-card-image class="episode-img">
                         <img *ngIf="episode.still_path!=null; else defaultimage3"
                             src="https://image.tmdb.org/t/p/w185/{{episode.still_path}}">
-                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="height:103px;width:185px;"></ng-template>
+                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="height:103px;width:185px;">
+                        </ng-template>
                     </div>
                     <div style="text-align: center;width:inherit">
 
                         <div ngClass="episode-name">{{episode.name}}</div>
                         <div class="air-date">{{episode.air_date | date}}</div>
                         <ng-template #t let-fill="fill">
-                                <span class="star" [class.full]="fill === 100">
-                                    <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
-                                </span>
-                            </ng-template>
+                            <span class="star" [class.full]="fill === 100">
+                                <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
+                            </span>
+                        </ng-template>
                         <ngb-rating [max]="1" [rate]="episode.vote_average/10" [starTemplate]="t" [readonly]="true">
                         </ngb-rating>
                         <pre>{{episode.vote_average| number:'1.0-1'}}/10({{episode.vote_count}} votes)</pre>
 
-                        <div class="show-more"><button mat-raised-button color="primary" (click)="openDialog(episode)"> More details</button></div>
+                        <div class="show-more"><button mat-raised-button color="primary" (click)="openDialog(episode)">
+                                More details</button></div>
 
                     </div>
 
@@ -60,6 +61,4 @@
             </mat-card>
         </div>
     </mat-card>
-    </div>
-
-  
+</div>

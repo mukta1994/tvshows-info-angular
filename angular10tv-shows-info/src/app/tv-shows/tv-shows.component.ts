@@ -26,6 +26,7 @@ export class TvShowsComponent implements OnInit {
     this.getTodaysShows();
   }
 
+  //get all popular shows
   getpopularShows(){
     this.dataService.getpopularShows(1).subscribe((data:{results:any})=>{
       this.all_types.push( {
@@ -41,6 +42,7 @@ export class TvShowsComponent implements OnInit {
 
   }
 
+    //get all top rated shows
   getTopRatedShows(){
     this.dataService.getTopRatedShows(1).subscribe((data:{results:any})=>{
       this.all_types.push({
@@ -54,6 +56,7 @@ export class TvShowsComponent implements OnInit {
      })
   }
 
+    //get all today's shows
   getTodaysShows(){
     this.dataService.getTodaysAiring(1).subscribe((data:{results:any})=>{
       this.all_types.push({
