@@ -9,5 +9,5 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular10tv-shows-info';
+  title = 'angular10-tv-shows-info';
 }

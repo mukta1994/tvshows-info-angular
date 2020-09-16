@@ -1,45 +1,73 @@
 <div mat-dialog-content>
-        <div class="dialogue-container">
-                <div class="episode-img">
-                    <img *ngIf="data.episode.still_path!=null; else default_img_dialogue" src="https://image.tmdb.org/t/p/w300/{{data.episode.still_path}}">
-                            <ng-template #default_img_dialogue><img class="default-img" src="../assets/default.jpg" ></ng-template>
-                </div>
-        
-                <div class="info">
-                    <div>
-                        <div class="episode-name" >{{data.episode.name}}<span class="air-date" style="font-size: 14px;font-weight:normal">({{data.episode.air_date| date}})</span></div>
-                        <p> {{data.directorList.length==0 ? 'Cast and Crew not available' : ''}}  </p>
-                       
-                    </div>
-                    <div> {{data.episode.overview!="" ? data.episode.overview : 'Overview not found'}}</div>
-                    
-                </div>
-          
-               
-            </div> 
-            <div  class="episode-name">  <p style=" text-align: center"> {{data.directorList!="" ? 'Cast and Crew' : ''}}  </p>
+    <div class="dialogue-container">
+        <div class="episode-img">
+            <img *ngIf="data.episode.still_path!=null; else default_img_dialogue"
+                src="https://image.tmdb.org/t/p/w300/{{data.episode.still_path}}">
+            <ng-template #default_img_dialogue><img class="default-img" src="../assets/default.jpg"></ng-template>
+        </div>
+
+        <div class="info">
+            <div>
+                <div class="episode-name">{{data.episode.name}}<span class="air-date"
+                        style="font-size: 14px;font-weight:normal">({{data.episode.air_date| date}})</span></div>
+                <p> {{data.directorList.length==0 ? 'Cast and Crew not available' : ''}} </p>
+
             </div>
+            <div> {{data.episode.overview!="" ? data.episode.overview : 'Overview not found'}}</div>
 
-            <div class="center-mat-card">
-            <div class="season-display" *ngIf="data.directorList">
-            <mat-card class="fancy-card" *ngFor="let director of data.directorList" appMaterialElevation
-            [defaultElevation]="2" raisedElevation="16" style="background-color: dimgrey">
-            <mat-card-content class="card-content">
-                <div mat-card-image class="episode-img">
-                    <img *ngIf="director.profile_path!=null; else defaultimage3"
-                        src="https://image.tmdb.org/t/p/w185/{{director.profile_path}}" style="height:103px;width:105px;">
-                    <ng-template #defaultimage3><img src="../assets/default.jpg" style="height:103px;width:105px;"></ng-template>
-                </div>
-                <div style="text-align: center;width:inherit">
-                    <div ngClass="episode-name" style="color:white">{{director.name}}</div>
-                    <div ngClass="episode-name" style="font-size: 14px ;color:white">{{director.known_for_department}}</div>
-                </div>
+        </div>
 
-            </mat-card-content>
 
-        </mat-card>
     </div>
-</div>
-            
-           
-</div>
+    <div class="director-group">
+        <div class="episode-name director"> {{data.directorList!="" ? 'Director' : ''}} </div>
+        <div class="season-display" *ngIf="data.directorList">
+            <mat-card class="fancy-card" *ngFor="let director of data.directorList" appMaterialElevation
+                [defaultElevation]="2" raisedElevation="16">
+                <mat-card-content class="card-content">
+                    <div mat-card-image class="episode-img">
+                        <img *ngIf="director.profile_path!=null; else defaultimage3"
+                            src="https://image.tmdb.org/t/p/w185/{{director.profile_path}}"
+                            style="height:103px;width:105px;">
+                        <ng-template #defaultimage3><img src="../assets/default.jpg" style="height:103px;width:105px;">
+                        </ng-template>
+                    </div>
+                    <div style="text-align: center;width:inherit">
+                        <div ngClass="episode-name" style="color:white">{{director.name}}</div>
+                        <div ngClass="episode-name" style="font-size: 14px ;color:white">{{director.job}}</div>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+    </div>
+    <div class="guest-stars">
+        <p class="episode-name"> {{data.episode.guest_stars.length== 0 ? '' : 'Guest Stars'}} </p>
+
+        <div class="center-mat-card">
+            <div class="season-display" *ngIf="data.episode.guest_stars">
+                <mat-card class="fancy-card" *ngFor="let guest of data.episode.guest_stars" appMaterialElevation
+                    [defaultElevation]="2" raisedElevation="16">
+                    <mat-card-content class="card-content">
+                        <div mat-card-image class="episode-img">
+                            <img *ngIf="guest.profile_path!=null; else defaultimage3"
+                                src="https://image.tmdb.org/t/p/w185/{{guest.profile_path}}"
+                                style="height:103px;width:105px;">
+                            <ng-template #defaultimage3><img src="../assets/default.jpg"
+                                    style="height:103px;width:105px;"></ng-template>
+                        </div>
+                        <div style="text-align: center;width:inherit">
+                            <div ngClass="star-name star-prop" style="color:white">{{guest.name}}</div>
+                            <div>as</div>
+                            <div ngClass="star-prop" style="font-size: 14px ;color:white">{{guest.character}}</div>
+                        </div>
+
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+
+
+    </div>

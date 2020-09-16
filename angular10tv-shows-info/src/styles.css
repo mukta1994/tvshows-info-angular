@@ -19,7 +19,7 @@ white-space: nowrap;
 overflow: hidden;
 }
 
-.mat-dialog-container .episode-name,.mat-dialog-container .episode-name p,.info .title{
+.mat-dialog-container .episode-name,.mat-dialog-container .episode-name p,.mat-dialog-container .star-name, .info .title{
     font-size: 20px;
     font-weight:bold;
 }
@@ -125,7 +125,7 @@ overflow: hidden;
 
   
 
-    .card-content,.season-display .card-content, .tv-shows .card-content{
+    .card-content,.season-display .card-content, .tv-shows .card-content,.director-group{
         display: flex;
         flex-direction:column;
         height: 100%;
@@ -173,7 +173,8 @@ overflow: hidden;
       margin:0 auto;
       display:block;
   }
-  .mat-chip-list-wrapper{
+  .mat-chip-list-wrapper,.director-group .season-display, .director-group .director{
+      display: flex;
     justify-content: center;
 }
 .info {
@@ -189,6 +190,17 @@ overflow: hidden;
 
 .dialogue-container .info, .details-overview{
     padding:20px 0px 0 0;
+}
+
+.center-mat-card {
+    display: flex;
+    justify-content: center;
+}
+.guest-stars p{
+    text-align: center;
+}
+.guest-stars.star-prop{
+    padding-top:2px;
 }
 }
 
@@ -248,10 +260,7 @@ overflow: hidden;
     margin:0;
 }
 
-.center-mat-card{
-    display: flex;
-    justify-content: center;
-}
+
 
 .run-time,.air-date{
     color: #b1afaf;

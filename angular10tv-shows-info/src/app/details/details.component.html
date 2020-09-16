@@ -10,7 +10,6 @@
         <div class="container">
             <div class="details-container">
                 <div class="poster_img">
-                    <!-- <img src="https://image.tmdb.org/t/p/w185/{{details.poster_path}}" style="height: 450px"> -->
                     <img *ngIf="details.poster_path; else defaultimage"
                         src="https://image.tmdb.org/t/p/w342/{{details.poster_path}}">
                     <ng-template #defaultimage><img class="default-img" src="../assets/default.jpg"></ng-template>
@@ -75,6 +74,5 @@
     </div>
 
     <app-season-episodes *ngIf="seasonEpisodes" [season_data]='seasonEpisodes'></app-season-episodes>
-
 
 </div>
