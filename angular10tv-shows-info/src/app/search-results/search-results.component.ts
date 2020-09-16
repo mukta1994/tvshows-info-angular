@@ -103,7 +103,6 @@ export class SearchResultsComponent implements OnInit {
     this.j++
     this.dataService.getpopularShows(this.j).subscribe((data:{results:any[]})=>{
       this.dataset = [...this.dataset];
-      //this.dataset.push(data.results);
       this.pushItems(data.results);
       },
       (error) => {
@@ -114,9 +113,6 @@ export class SearchResultsComponent implements OnInit {
     this.j++
     this.dataService.getTopRatedShows(this.j).subscribe((data:{results:any[]})=>{
       this.dataset = [...this.dataset];
-      // data.results.map((item) => { 
-      //   this.dataset.push(item) 
-      // })
       this.pushItems(data.results);
     },
     (error) => {

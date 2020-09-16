@@ -41,6 +41,10 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER+"tv/airing_today?"+this.apikey+"&page="+i);
   }
 
+  public getDirectors(i) {
+    return this.httpClient.get(this.REST_API_SERVER+"person/"+i+"?"+this.apikey+"&page="+1);
+  }
+
 }
 
 

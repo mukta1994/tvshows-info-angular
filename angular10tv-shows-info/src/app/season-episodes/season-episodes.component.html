@@ -30,8 +30,8 @@
 
         </mat-card>
         <div class="season-display" [ngClass]="{'hidden': (isChecked+season._id==0)}" style="overflow-x:scroll">
-            <mat-card class="fancy-card" *ngFor="let episode of season.episodes" appMaterialElevation
-                [defaultElevation]="2" raisedElevation="16" (click)="openDialog(episode)">
+            <mat-card class="fancy-card" *ngFor="let episode of season.episodes | filter:'latest-asc'" appMaterialElevation
+                [defaultElevation]="2" raisedElevation="16" >
                 <mat-card-content class="card-content">
                     <div mat-card-image class="episode-img">
                         <img *ngIf="episode.still_path!=null; else defaultimage3"
@@ -40,7 +40,7 @@
                     </div>
                     <div style="text-align: center;width:inherit">
 
-                        <div ngClass="episode-name" style="font-size: 16px;font-weight:bold">{{episode.name}}</div>
+                        <div ngClass="episode-name">{{episode.name}}</div>
                         <div class="air-date">{{episode.air_date | date}}</div>
                         <ng-template #t let-fill="fill">
                                 <span class="star" [class.full]="fill === 100">
@@ -50,6 +50,9 @@
                         <ngb-rating [max]="1" [rate]="episode.vote_average/10" [starTemplate]="t" [readonly]="true">
                         </ngb-rating>
                         <pre>{{episode.vote_average| number:'1.0-1'}}/10({{episode.vote_count}} votes)</pre>
+
+                        <div class="show-more"><button mat-raised-button color="primary" (click)="openDialog(episode)"> More details</button></div>
+
                     </div>
 
                 </mat-card-content>

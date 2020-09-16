@@ -17,7 +17,7 @@
                 [matAutocomplete]="auto" (ngModelChange)="$event.value!='' ? getData($event): ''">
          <mat-autocomplete #auto="matAutocomplete" class="shows-autocomplete">
            <mat-option *ngFor="let option of shows" [value]="option" (click)="gotoDetails( option.id)">
-             <img *ngIf="option.poster_path!=null; else defaultimg" src="https://image.tmdb.org/t/p/w185/{{option.poster_path}}" >
+             <img class="default-img" *ngIf="option.poster_path!=null; else defaultimg" src="https://image.tmdb.org/t/p/w92/{{option.poster_path}}" >
              <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg"></ng-template>
              {{option.name}}
            </mat-option>

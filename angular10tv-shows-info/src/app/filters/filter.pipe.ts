@@ -31,6 +31,9 @@ export class FilterPipe implements PipeTransform {
    case 'latest': { 
     return(items.sort((a, b) => { return <any>new Date(b.air_date) - <any>new Date(a.air_date)}))
   } 
+  case 'latest-asc': { 
+    return(items.sort((a, b) => { return <any>new Date(b.air_date) - <any>new Date(a.air_date)})).reverse();
+  } 
      default: { 
        return items;    
    } 

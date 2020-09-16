@@ -41,9 +41,9 @@
                             src="https://image.tmdb.org/t/p/w185/{{show.poster_path}}">
                         <ng-template #defaultimg><img class="default-img" src="../assets/default.jpg"></ng-template>
                     </div>
-                    <div class="show-info" style="text-align: center;width:inherit">
+                    <div class="show-info">
 
-                        <div style="font-size: 16px;font-weight:bold">{{show.name}}</div>
+                        <div class="title">{{show.name}}</div>
                         <div class="air-date">{{show.first_air_date| date}}</div>
 
                         <mat-chip-list>

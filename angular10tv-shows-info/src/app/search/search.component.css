@@ -91,10 +91,7 @@ input {
   display: flex;
 }
 
-.default-img{
-  height:277px;
-  width: 185px;
-}
+
 
 .select-list  .mat-form-field-appearance-fill .mat-form-field-flex {
  
@@ -116,7 +113,7 @@ input {
   box-shadow: none;
 }
 
-.shows-autocomplete img{
-  height:60px;
-  width:50px;
+.default-img{
+  height: 68px;
+  width:60px;
 }

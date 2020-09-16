@@ -4,7 +4,7 @@
 <mat-card class="tv-shows" *ngFor="let item of all_types">
     <div class="title">{{item.name}}</div>
 <div class="tv-shows-info" style="overflow-x:scroll">
-        <mat-card class="fancy-card" *ngFor="let shows of item.data" appMaterialElevation
+        <mat-card class="fancy-card" *ngFor="let shows of item.data| filter:'vote'" appMaterialElevation
             [defaultElevation]="2" raisedElevation="16" [routerLink]="['./details', shows.id]">
             <mat-card-content class="card-content">
                 <div mat-card-image>

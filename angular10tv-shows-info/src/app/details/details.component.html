@@ -25,22 +25,22 @@
                     <pre>{{details.vote_average | number:'1.0-1'}}/10({{details.vote_count}} votes)</pre>
 
 
-                    <div *ngIf="details.status!=''" class="title">Status</div>
+                    <div *ngIf="details.status!=''" class="property">Status</div>
                     <div>{{details.status}}</div>
                     <br />
                     <div style="font-weight: bold">Type</div>
                     <div>{{details.type}}</div>
                     <br />
-                    <div *ngIf="details.networks.length!=0" class="title">Network</div>
+                    <div *ngIf="details.networks.length!=0" class="property">Network</div>
                     <div>
                         <mat-chip-list>
-                            <mat-chip *ngFor="let network of details.networks">
+                            <mat-chip *ngFor="let network of details.networks" style="height: auto">
                                 {{network.name}}
                             </mat-chip>
                         </mat-chip-list>
                     </div>
                     <br />
-                    <div *ngIf="details.genres.length!=0" class="title">Genres</div>
+                    <div *ngIf="details.genres.length!=0" class="property">Genres</div>
                     <div class="chip-section">
                         <div class="chip" *ngFor="let genre of details.genres">
                             {{genre.name}}

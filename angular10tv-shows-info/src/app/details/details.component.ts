@@ -27,8 +27,6 @@ export class DetailsComponent implements OnInit {
       console.log(this.details)
       if(this.details && this.details.seasons.length){
         this.selected_season= this.details.seasons.sort((a, b) =>(<any>new Date(b.air_date)  - <any>new Date(a.air_date)))[0]
-        console.log(this.details.seasons,"without sort");
-        console.log(this.details.seasons.sort((a, b) =>(<any>new Date(b.air_date)  - <any>new Date(a.air_date))),"with sort");
       this.dataService.getSeasons(this.details.seasons[0].season_number,this.details.id).subscribe((data)=>{
         this.seasonEpisodes.push(data);
 
@@ -54,7 +52,6 @@ export class DetailsComponent implements OnInit {
       this.details.seasons.map((item) => { 
         this.dataService.getSeasons(item.season_number,this.details.id).subscribe((data)=>{
           this.seasonEpisodes.push(data) ;
-          console.log(this.seasonEpisodes.sort((a, b) => { return <any>new Date(b.air_date) - <any>new Date(a.air_date)}),"season wise");
 
         },(error) => {
           this.errorMessage = error.message; 

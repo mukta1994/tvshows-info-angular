@@ -23,23 +23,41 @@ export class SeasonEpisodesComponent implements OnInit {
   screenWidth:any;
   dialogue_box:any;
   episodeShow=false;
+  directors=[];
+  errorMessage:any;
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+
   }
 
   openDialog(episode) {
-    //this.directorList=Object.keys(episode.crew).map(function(k){return episode.crew[name]}).join(",")
-    this.directorList=Array.prototype.map.call(episode.crew.filter(t=>t.job ==='Director'), function(item) { return item.name; }).join(",");
+    this.directorList=Array.prototype.map.call(episode.crew.filter(t=>t.department ==="Directing"), function(item) { return item.id; });
+    this.directors=[]
+    episode.crew.map((item) => { 
+      this.dataService.getDirectors(item.id).subscribe((data)=>{
+        this.directors.push(data) ;
+
+      },(error) => {
+        this.errorMessage = error.message; 
+        console.log(this.errorMessage);
+        alert("something went wrong with status code "+ error.status )
+     })
+    })
+    console.log(this.directors);
+
     if(this.screenWidth<992)
-      this.dialogue_box='80%';
+      this.dialogue_box='90%';
     else
       this.dialogue_box='50%';
+
+      console.log(episode)
 
     this.dialog.open(DialogDataExampleDialog, {
       width:this.dialogue_box,
       data: {
         episode: episode,
-        directorList:this.directorList
+        directorList:this.directors
       }
     });
   }

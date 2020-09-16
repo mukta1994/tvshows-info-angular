@@ -6,7 +6,7 @@
     width:100%;
     /* background-color: rgba(40.78%, 26.27%, 24.71%, 0.84); */
     background-color:rgb(35 37 36 / 84%);
-    font-size:18px;
+    font-size:20px;
     font-weight: bold;
     color: whitesmoke;
     height: 55px;
@@ -29,6 +29,3 @@
       cursor: pointer;
 }
 
-.show-more .mat-raised-button{
-    background-color: rgb(35 37 36 / 84%);
-}

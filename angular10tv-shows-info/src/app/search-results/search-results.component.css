@@ -8,6 +8,8 @@
 
 .show-info{
     margin-top:8px;
+    text-align:center;
+    width:inherit;
 }
 
 .fancy_card:hover {
