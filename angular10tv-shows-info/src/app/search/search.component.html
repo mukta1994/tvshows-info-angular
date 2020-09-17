@@ -3,7 +3,7 @@
   <form class="container" (ngSubmit)="onSubmit(test);">
     <p ngClass="title">Welcome To the world of TV shows</p>
 
-    <mat-form-field ngClass="example-full-width" style="margin: 20px;width:100%">
+    <mat-form-field ngClass="example-full-width" style="width:100%">
       <div class="search">
         <input type="text" aria-label="Number" [(ngModel)]="test" matInput [formControl]="myControl"
           [matAutocomplete]="auto" (ngModelChange)="$event.value!='' ? getData($event): ''">
