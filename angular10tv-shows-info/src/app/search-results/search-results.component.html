@@ -7,10 +7,13 @@
         <span class="half" [style.width.%]="fill">&#x2605;</span>&#x2605;
     </span>
 </ng-template>
-<div class="container">
+<ng-template #nodata >
+   <h1 style="text-align: center">no shows found</h1>
+</ng-template>
+<div class="container" *ngIf="dataset.length!=0 else nodata">
     <div class="search-results" infinite-scroll (scrolled)="onScroll()">
         <div class="filter-options">
-            <div>Filter by</div>
+            <div class="episode-name">Sort by</div>
             <mat-form-field appearance="fill">
                 <mat-select [value]="selected_filter" (selectionChange)="onSelectionChange($event)"
                     style="padding-bottom: 1em">
@@ -56,7 +59,7 @@
                             </ngb-rating>
                             <pre>{{show.vote_average}}/10({{show.vote_count}})</pre>
 
-                            <div class="overview">{{show.overview=="" ? 'overview not available' : show.overview}}</div>
+                            <div class="overview">{{show.overview=="" ? 'Overview not available' : show.overview}}</div>
                         </div>
 
                     </mat-card-content>

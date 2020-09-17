@@ -10,7 +10,7 @@
             <div>
                 <div class="episode-name">{{data.episode.name}}<span class="air-date"
                         style="font-size: 14px;font-weight:normal">({{data.episode.air_date| date}})</span></div>
-                <p> {{data.directorList.length==0 ? 'Cast and Crew not available' : ''}} </p>
+                <p> {{data.directorList.length==0 ? 'Director not available' : ''}} </p>
 
             </div>
             <div> {{data.episode.overview!="" ? data.episode.overview : 'Overview not found'}}</div>
