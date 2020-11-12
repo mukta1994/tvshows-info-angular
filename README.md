@@ -23,5 +23,6 @@ Deploy on firebase
   a: dist/{{project name}} (ex:dist/angular10tv-shows-info)
   q: Configure as a single-page app (rewrite all urls to /index.html)?
   a: Yes
-3. firebase deploy
+3. ng build --prod --aot
+4. firebase deploy
   
