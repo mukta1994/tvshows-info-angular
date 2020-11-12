@@ -10,3 +10,18 @@ ng serve
 npm install --save-dev @angular-devkit/build-angular
 ng serve
 7. Then the project should run on http://localhost:4200
+
+
+Deploy on firebase 
+1. firebase login
+2. firebase init
+  q: Please select an option 
+  a: Use an existing project
+  q: Select a default Firebase project for this directory:
+  a: select option from firebase project list
+  q: What do you want to use as your public directory?
+  a: dist/{{project name}} (ex:dist/angular10tv-shows-info)
+  q: Configure as a single-page app (rewrite all urls to /index.html)?
+  a: Yes
+3. firebase deploy
+  
