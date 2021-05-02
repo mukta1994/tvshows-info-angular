@@ -1,5 +1,10 @@
 # tvshows-info-angular
 
+Get api key
+1. go to: https://www.themoviedb.org/
+login and create apikey.
+2. Add generated api key in environments folder(src/environments/environment.ts)
+
 1. This project is built using angular cli 10.1.0.
 2. Prerequisite: System should have Node js version 10.13 or higher version.
 3. Download the project from git hub.
