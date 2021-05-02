@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/angular10tv-shows-info",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

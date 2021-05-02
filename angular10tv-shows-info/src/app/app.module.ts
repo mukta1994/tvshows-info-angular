@@ -34,9 +34,6 @@ import { GridDataComponent } from './grid-data/grid-data.component';
 import { FilterPipe } from './filters/filter.pipe';
 import { MinuteToHoursPipe } from './filters/minute-to-hours.pipe';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
