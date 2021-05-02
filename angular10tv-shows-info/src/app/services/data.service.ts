@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   private REST_API_SERVER = "https://api.themoviedb.org/3/";
-  private apikey="api_key=89c03b44df1ea6a32f56ff5a0ce45867&language=en-US"
+  private apikey=""
 
   constructor(private httpClient: HttpClient) { }
 
